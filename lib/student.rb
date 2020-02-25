@@ -41,6 +41,7 @@ class Student
     SQL
     DB[:conn].execute(sql).collect do |x,y|
     self.new_from_db(x,y)
+  end 
    end 
   
   def self.first_student_in_grade_10
