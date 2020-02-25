@@ -39,8 +39,8 @@ class Student
     sql = <<-SQL
        SELECT * FROM students WHERE grade = 10 LIMIT ?
     SQL
-    DB[:conn].execute(sql,x)
-    self.new_from_db(x)
+    DB[:conn].execute(sql).collect do |x,y|
+    self.new_from_db(x,y)
    end 
   
   def self.first_student_in_grade_10
